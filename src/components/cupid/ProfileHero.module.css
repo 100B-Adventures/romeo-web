@@ -1,0 +1,22 @@
+.root { background:var(--cupid-idv-bg); color:var(--cupid-idv-text) }
+.stage { position:relative; width:100%; aspect-ratio:4/5; overflow:hidden; background:var(--cupid-idv-surface) }
+.photo,.emptyPhoto { width:100%; height:100% }
+.photo { object-fit:cover }
+.emptyPhoto { display:grid; place-items:center; color:var(--cupid-idv-muted); font-family:var(--cupid-idv-display); font-size:3.5rem }
+.tint { position:absolute; inset:0; background:linear-gradient(to bottom,var(--cupid-idv-hero-top) 0%,transparent 22%,transparent 52%,var(--cupid-idv-hero-bottom) 100%); pointer-events:none }
+.score { position:absolute; top:.875rem; right:.875rem; padding:.3125rem .6875rem; border-radius:var(--cupid-radius-sharp); background:var(--cupid-idv-hero-badge); color:var(--cupid-idv-accent); font-size:.71875rem; font-weight:800; letter-spacing:.01875rem; box-shadow:var(--cupid-idv-shadow-hero) }
+.verified { position:absolute; left:1.25rem; bottom:5.75rem; display:inline-flex; align-items:center; gap:.4375rem; padding:.375rem .75rem; border:.0625rem solid var(--cupid-idv-hero-verified-border); border-radius:var(--cupid-radius-sharp); background:var(--cupid-idv-hero-verified-bg); color:var(--cupid-idv-on-accent); font-size:.53125rem; font-weight:700; letter-spacing:.15625rem; text-transform:uppercase }
+.caption { position:absolute; left:1.25rem; right:1.25rem; bottom:1.125rem; color:var(--cupid-idv-on-accent) }
+.kicker { font-size:.625rem; font-weight:700; letter-spacing:.25rem; text-transform:uppercase; color:var(--cupid-idv-hero-muted) }
+.name { margin-top:.375rem; font-family:var(--cupid-idv-serif); font-size:clamp(1.875rem,8vw,2.375rem); font-weight:600; line-height:1.05 }
+.age { color:var(--cupid-idv-hero-age); font-family:var(--cupid-idv-display); font-style:italic; font-weight:500 }
+.back,.menu { position:absolute; top:.875rem; z-index:2 }
+.back { left:1.25rem }
+.menu { right:1.25rem }
+.dossier { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; padding:1.25rem 1.25rem 0 }
+.fact { padding:0 .6875rem; border-right:.0625rem solid var(--cupid-idv-border); color:var(--cupid-idv-text-2); font-size:.71875rem; font-weight:600; letter-spacing:.09375rem; line-height:1; text-transform:uppercase }
+.fact:last-child { border-right:0 }
+.profession { padding:.875rem 1.25rem 0; text-align:center }
+.professionKicker { color:var(--cupid-idv-gold); font-size:.625rem; font-weight:800; letter-spacing:.15625rem }
+.professionValue { margin-top:.25rem; font-family:var(--cupid-idv-serif); font-size:1rem }
+@media (min-width:64rem) { .stage { max-height:28.75rem } }

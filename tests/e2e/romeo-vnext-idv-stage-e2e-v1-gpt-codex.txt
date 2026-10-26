@@ -1,0 +1,42 @@
+
+Running 3 tests using 1 worker
+
+(node:10211) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+(node:10211) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/3] [desktop] › tests/e2e/idv-security-handoff.spec.ts:110:7 › V10-WEB-IDV stage 실제 서버 보안 E2E › TC-AUTH-ADULT-STAGE-001 본인확인 미완료 번호는 토큰 엔드포인트를 직접 호출해도 토큰이 없다
+[desktop] › tests/e2e/idv-security-handoff.spec.ts:110:7 › V10-WEB-IDV stage 실제 서버 보안 E2E › TC-AUTH-ADULT-STAGE-001 본인확인 미완료 번호는 토큰 엔드포인트를 직접 호출해도 토큰이 없다
+[stage-response] adult-missing-login-start HTTP 200 {"accountState":"NEW","nextStep":"IDV","idvSession":{"idvSessionId":"eedac64b-4a93-44ab-b85f-aa9439ae65f5","expiresAt":"2026-09-04T08:10:04.986815539+09:00","carriers":["SKT","KT","LGU","MVNO"]},"smsChallenge":null,"block":null}
+
+[stage-response] adult-missing-direct-login HTTP 400 {"code":"AUTH_002","message":"인증번호 요청을 찾을 수 없습니다. 먼저 인증번호를 요청해주세요.","timestamp":"2026-09-03T23:07:05.366401738","path":"/api/v1/auth/login"}
+
+[2/3] [desktop] › tests/e2e/idv-security-handoff.spec.ts:134:7 › V10-WEB-IDV stage 실제 서버 보안 E2E › TC-IDV-UNDERAGE-STAGE-001 미성년 결과와 재진입 차단이 stage DB 경계를 왕복한다
+[desktop] › tests/e2e/idv-security-handoff.spec.ts:134:7 › V10-WEB-IDV stage 실제 서버 보안 E2E › TC-IDV-UNDERAGE-STAGE-001 미성년 결과와 재진입 차단이 stage DB 경계를 왕복한다
+[stage-response] login-start HTTP 200 {"accountState":"NEW","nextStep":"IDV","idvSession":{"idvSessionId":"aac115ab-7201-4943-9876-c4c8d1a5c69b","expiresAt":"2026-09-04T08:10:05.751280737+09:00","carriers":["SKT","KT","LGU","MVNO"]},"smsChallenge":null,"block":null}
+
+[stage-response] idv-start HTTP 202 {"status":"PENDING","pollAfterMs":2000,"expiresAt":"2026-09-04T08:10:06+09:00","handoff":null}
+
+[stage-response] idv-underage-status HTTP 200 {"status":"UNDERAGE","adult":false,"failureCode":null,"failureCategory":null,"failureMessage":null,"failureNextAction":null,"retryAllowed":false,"retryCount":1,"signupTicket":null,"carrier":"SKT","block":{"reason":"UNDERAGE","adultAt":"2028-09-18","message":"만 19세가 되는 2028년 9월 18일부터 가입하실 수 있어요"}}
+
+[stage-response] idv-underage-reentry HTTP 200 {"accountState":"BLOCKED_UNDERAGE","nextStep":"BLOCKED","idvSession":null,"smsChallenge":null,"block":{"reason":"UNDERAGE","adultAt":"2028-09-18","message":"만 19세가 되는 2028년 9월 18일부터 가입하실 수 있어요"}}
+
+[3/3] [desktop] › tests/e2e/idv-security-handoff.spec.ts:160:7 › V10-WEB-IDV stage 실제 서버 보안 E2E › TC-IDV-TICKET-STAGE-001 가입 표는 첫 가입에서만 소비되고 두 번째 요청은 토큰이 없다
+[desktop] › tests/e2e/idv-security-handoff.spec.ts:160:7 › V10-WEB-IDV stage 실제 서버 보안 E2E › TC-IDV-TICKET-STAGE-001 가입 표는 첫 가입에서만 소비되고 두 번째 요청은 토큰이 없다
+[stage-response] login-start HTTP 200 {"accountState":"NEW","nextStep":"IDV","idvSession":{"idvSessionId":"6193014f-5cad-4985-a687-313a88e924a2","expiresAt":"2026-09-04T08:10:07.201607378+09:00","carriers":["SKT","KT","LGU","MVNO"]},"smsChallenge":null,"block":null}
+
+[stage-response] idv-start HTTP 202 {"status":"PENDING","pollAfterMs":2000,"expiresAt":"2026-09-04T08:10:07+09:00","handoff":null}
+
+[stage-response] idv-adult-status HTTP 200 {"status":"SUCCEEDED","adult":true,"failureCode":null,"failureCategory":null,"failureMessage":null,"failureNextAction":null,"retryAllowed":false,"retryCount":1,"signupTicket":{"present":true,"length":36},"carrier":"SKT","block":null}
+
+[stage-response] signup-ticket-first-use HTTP 200 {"accessToken":{"present":true,"length":171},"accessTokenExpiresAt":"2026-09-03T23:22:08","refreshToken":{"present":true,"length":231},"refreshTokenExpiresAt":"2026-10-03T23:07:08","userId":127,"nickname":"qa-idv-a-mtm4xcgf854","gender":"FEMALE","role":"USER","status":"ACTIVE","profilePhoto":null}
+
+[stage-response] signup-ticket-second-use HTTP 400 {"code":"COMMON_001","message":"본인확인 표가 유효하지 않습니다.","timestamp":"2026-09-03T23:07:08.614548854","path":"/api/v1/auth/signup"}
+
+[stage-response] cleanup-account HTTP 200 {"success":true,"message":"계정이 삭제되었습니다.","data":null}
+
+  3 passed (12.6s)

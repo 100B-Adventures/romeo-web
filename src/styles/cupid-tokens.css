@@ -1,0 +1,164 @@
+/* R21 Cupid 컨셉 전환 — Editorial 매거진 톤 CSS 토큰
+ * (기존 globals.css 비파괴, 매거진 액센트만 추가)
+ */
+
+@font-face {
+  font-family: 'Cupid Cormorant Garamond';
+  src: url('/fonts/CormorantGaramond-Regular.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+}
+
+:root {
+  --cupid-accent: #A83C3C;          /* Romeo wine */
+  --cupid-accent-light: rgba(168, 60, 60, 0.1);
+  --cupid-meta-label: #808080;
+  --cupid-meta-border: #E5E5E5;
+  --cupid-serif: Georgia, "Noto Serif KR", "Times New Roman", serif;
+  --cupid-image-grayscale: 0.4;
+
+  /* DESIGN.md v39.5 회원용 지면. IDV 모듈만 소비해 기존 웹 테마를 흔들지 않는다. */
+  --cupid-idv-bg: #FAF7F2;
+  --cupid-idv-paper: #FBF8F3;
+  --cupid-idv-surface: #F5F0E8;
+  --cupid-idv-card: #FFFFFF;
+  --cupid-idv-text: #1F1B1A;
+  --cupid-idv-text-2: #6B6259;
+  --cupid-idv-muted: #9E958B;
+  --cupid-idv-border: #E9E2D6;
+  --cupid-idv-accent: #A52A44;
+  --cupid-idv-accent-deep: #6B1B2E;
+  --cupid-idv-accent-soft: rgba(165, 42, 68, 0.09);
+  --cupid-idv-accent-border: rgba(165, 42, 68, 0.30);
+  --cupid-idv-gold: #825B05;
+  --cupid-idv-gold-soft: rgba(130, 91, 5, 0.10);
+  --cupid-idv-gold-border: rgba(130, 91, 5, 0.34);
+  --cupid-idv-ok: #28664A;
+  --cupid-idv-danger: #9F2F37;
+  --cupid-idv-on-accent: #FFFFFF;
+  --cupid-idv-shadow-accent: 0 4px 12px rgba(165, 42, 68, 0.22);
+  --cupid-idv-shadow-hero: 0 4px 12px rgba(60, 30, 20, 0.18);
+  --cupid-idv-shadow-float: 0 2px 10px rgba(60, 40, 20, 0.14);
+  --cupid-idv-hero-top: rgba(20, 12, 14, 0.28);
+  --cupid-idv-hero-bottom: rgba(18, 10, 12, 0.86);
+  --cupid-idv-hero-control: rgba(20, 12, 14, 0.40);
+  --cupid-idv-hero-badge: rgba(255, 247, 242, 0.94);
+  --cupid-idv-hero-verified-bg: rgba(20, 10, 13, 0.40);
+  --cupid-idv-hero-verified-border: rgba(241, 217, 174, 0.45);
+  --cupid-idv-hero-muted: rgba(255, 255, 255, 0.82);
+  --cupid-idv-hero-age: #F1D9AE;
+  --cupid-idv-brand-bg: #1B1615;
+  --cupid-idv-brand-line: rgba(241, 217, 174, 0.25);
+  --cupid-idv-brand-text: #FAF3EB;
+  --cupid-idv-brand-muted: #D8C9B7;
+  --cupid-sp-row: 0.75rem;
+  --cupid-sp-xs: 0.25rem;
+  --cupid-sp-sm: 0.5rem;
+  --cupid-sp-lg: 1rem;
+  --cupid-sp-block: 1.25rem;
+  --cupid-sp-group-in: 1.5rem;
+  --cupid-sp-section: 2rem;
+  --cupid-sp-group: 3rem;
+  --cupid-page-gutter: 1.5rem;
+  --cupid-radius-sharp: 0.125rem;
+  --cupid-radius-input: 0.5rem;
+  --cupid-control-button-height: 3.25rem;
+  --cupid-control-input-height: 3.5rem;
+  --cupid-control-button-size: 0.9375rem;
+  --cupid-control-heading-size: 1.75rem;
+  --cupid-control-heading-line-height: 2.25rem;
+  --cupid-control-heading-weight: 600;
+  --cupid-page-heading-size: 1.8125rem;
+  --cupid-page-heading-line-height: 2.1875rem;
+  --cupid-display-heading-weight: 600;
+  --cupid-status-timer-size: 2.75rem;
+  --cupid-status-timer-line-height: 3rem;
+  --cupid-home-empty-kicker-size: 0.65625rem;
+  --cupid-home-empty-kicker-spacing: 0.3125rem;
+  --cupid-home-empty-heading-size: 1.875rem;
+  --cupid-home-empty-heading-line-height: 2.0625rem;
+  --cupid-home-empty-heading-spacing: -0.03125rem;
+  --cupid-home-empty-heading-weight: 400;
+  --cupid-home-empty-notice-size: 0.78125rem;
+  --cupid-home-empty-notice-line-height: 1.25rem;
+  --cupid-home-empty-notice-icon-size: 1rem;
+  --cupid-home-empty-timer-size: 2.875rem;
+  --cupid-home-empty-timer-line-height: 3.1875rem;
+  --cupid-home-empty-timer-label-size: 0.625rem;
+  --cupid-home-empty-editor-kicker-size: 0.59375rem;
+  --cupid-home-empty-editor-body-size: 1rem;
+  --cupid-home-empty-editor-body-line-height: 1.6875rem;
+  --cupid-home-empty-editor-rule-width: 0.1875rem;
+  --cupid-home-empty-editor-max: 18.75rem;
+  --cupid-editorial-content-max: 45rem;
+  --cupid-home-empty-cta-bg: linear-gradient(135deg, var(--cupid-idv-accent-deep), var(--cupid-idv-accent));
+  --cupid-radius-circle: 50%;
+  --cupid-radius-pill: 999px;
+  --cupid-min-readable-size: .8125rem;
+  --cupid-ok-photo-frame-width: 7.25rem;
+  --cupid-editorial-rail-width: 20rem;
+  --cupid-lh-display: 1.1;
+  --cupid-lh-title: 1.35;
+  --cupid-lh-body: 1.7;
+  --cupid-lh-note: 1.5;
+  --cupid-app-header-height: 4.1875rem;
+  --cupid-pay-result-min-height: 47.5rem;
+  --cupid-pay-result-gutter: 1.875rem;
+  --cupid-pay-result-content-max: 18.75rem;
+  --cupid-pay-cta-min-height: 3.25rem;
+  --cupid-pay-heading-size: 1.75rem;
+  --cupid-pay-body-size: 1rem;
+  --cupid-pay-link-size: 0.875rem;
+  --cupid-pay-letter-spacing: 0.01875rem;
+  --cupid-motion-fast: 120ms;
+  --cupid-motion-press-offset: 0.0625rem;
+  --cupid-idv-sans: 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+  --cupid-idv-serif: var(--font-cupid-noto-serif-kr), 'AppleMyungjo', 'Nanum Myeongjo', Georgia, serif;
+  --cupid-idv-display: 'Cupid Cormorant Garamond', 'Didot', 'Bodoni 72', Georgia, serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --cupid-meta-label: #A0A0A0;
+    --cupid-meta-border: #2A2A2A;
+  }
+}
+
+/* 매거진 메타 라벨 (NO. 142 · 일자) */
+.cupid-meta {
+  color: var(--cupid-meta-label);
+  font-family: var(--cupid-serif);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* 매거진 헤드라인 (serif) */
+.cupid-headline {
+  font-family: var(--cupid-serif);
+  font-weight: 400;
+}
+
+/* 매거진 사진 cut feel */
+.cupid-photo {
+  filter: grayscale(var(--cupid-image-grayscale));
+  transition: filter 0.3s ease;
+}
+.cupid-photo:hover {
+  filter: grayscale(0);
+}
+
+/* 매거진 인용부호 */
+.cupid-quote-mark {
+  font-family: var(--cupid-serif);
+  font-size: 48px;
+  line-height: 1;
+  color: var(--cupid-accent);
+}
+
+.cupid-magazine-page {
+  width: 100%;
+  max-width: 67.5rem;
+  margin-inline: auto;
+}

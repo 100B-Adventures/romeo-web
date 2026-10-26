@@ -1,0 +1,41 @@
+.header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  border-bottom: 1px solid var(--cupid-idv-border);
+  background: var(--cupid-idv-bg);
+}
+.inline { position: relative; }
+.inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  width: 100%;
+  max-width: 45rem;
+  min-height: var(--cupid-app-header-height);
+  margin-inline: auto;
+  align-items: center;
+  padding: var(--cupid-sp-row) var(--cupid-page-gutter) 0.625rem;
+}
+.heart,
+.notification,
+.back {
+  display: inline-flex;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  align-items: center;
+  gap: 0.375rem;
+  color: var(--cupid-idv-text);
+}
+.back { justify-self: start; justify-content: flex-start; border: 0; background: transparent; font-size: 1.75rem; }
+.rightTitle { max-width: 36%; justify-self: end; overflow: hidden; color: var(--cupid-idv-text-2); font-size: 0.8125rem; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
+.heart { justify-self: start; color: var(--cupid-idv-accent); font-size: 0.875rem; font-weight: 800; }
+.notification { position: relative; justify-self: end; justify-content: flex-end; }
+.wordmark {
+  color: var(--cupid-idv-text);
+  font-family: var(--cupid-idv-display);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: 0.125rem;
+}
+.dot { position: absolute; top: 0.625rem; right: 0.125rem; width: 0.5rem; height: 0.5rem; border-radius: var(--cupid-radius-circle); background: var(--cupid-idv-accent); }

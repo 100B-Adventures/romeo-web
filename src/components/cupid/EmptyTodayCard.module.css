@@ -1,0 +1,179 @@
+.root {
+  min-height: calc(100dvh - var(--cupid-app-header-height));
+  padding: var(--cupid-sp-row) var(--cupid-page-gutter) var(--cupid-sp-group-in);
+  background: var(--cupid-idv-bg);
+  color: var(--cupid-idv-text);
+}
+
+.inner {
+  width: 100%;
+  max-width: var(--cupid-editorial-content-max);
+  margin-inline: auto;
+}
+
+.kicker {
+  color: var(--cupid-idv-gold);
+  font-size: var(--cupid-home-empty-kicker-size);
+  font-weight: 700;
+  letter-spacing: var(--cupid-home-empty-kicker-spacing);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.headline {
+  display: flex;
+  margin-top: var(--cupid-sp-sm);
+  flex-direction: column;
+  color: var(--cupid-idv-text);
+  font-family: var(--cupid-idv-serif);
+  font-size: var(--cupid-home-empty-heading-size);
+  font-weight: var(--cupid-home-empty-heading-weight);
+  letter-spacing: var(--cupid-home-empty-heading-spacing);
+  line-height: var(--cupid-home-empty-heading-line-height);
+  text-align: center;
+}
+
+.headline em {
+  color: var(--cupid-idv-accent);
+  font-family: var(--cupid-idv-serif);
+  font-style: normal;
+  font-weight: var(--cupid-home-empty-heading-weight);
+}
+
+.divider {
+  display: flex;
+  padding-block: var(--cupid-sp-lg) var(--cupid-sp-xs);
+  align-items: center;
+  justify-content: center;
+  gap: var(--cupid-sp-row);
+}
+
+.divider span {
+  width: var(--cupid-sp-group);
+  height: var(--cupid-motion-press-offset);
+  background: var(--cupid-idv-gold-border);
+}
+
+.divider b {
+  color: var(--cupid-idv-gold);
+  font-size: var(--cupid-home-empty-kicker-size);
+}
+
+.notice {
+  display: flex;
+  margin-top: var(--cupid-sp-row);
+  padding: var(--cupid-sp-row) var(--cupid-sp-lg);
+  align-items: flex-start;
+  gap: var(--cupid-sp-row);
+  border: var(--cupid-motion-press-offset) solid var(--cupid-idv-accent-border);
+  border-radius: var(--cupid-radius-input);
+  background: var(--cupid-idv-accent-soft);
+  font-size: var(--cupid-home-empty-notice-size);
+  line-height: var(--cupid-home-empty-notice-line-height);
+  word-break: keep-all;
+}
+
+.noticeIcon {
+  width: var(--cupid-home-empty-notice-icon-size);
+  height: var(--cupid-home-empty-notice-icon-size);
+  flex: 0 0 auto;
+  margin-top: var(--cupid-sp-xs);
+  fill: var(--cupid-idv-accent);
+}
+
+.noticeTitle {
+  color: var(--cupid-idv-accent);
+  font-weight: 700;
+}
+
+.noticeBody {
+  color: var(--cupid-idv-text);
+}
+
+.primaryAction {
+  width: 100%;
+  min-height: var(--cupid-control-button-height);
+  margin-top: var(--cupid-sp-row);
+  border: 0;
+  border-radius: var(--cupid-radius-sharp);
+  background: var(--cupid-home-empty-cta-bg);
+  color: var(--cupid-idv-on-accent);
+  cursor: pointer;
+  font-size: var(--cupid-control-button-size);
+  font-weight: 800;
+}
+
+.primaryAction:focus-visible {
+  outline: var(--cupid-radius-sharp) solid var(--cupid-idv-accent-deep);
+  outline-offset: var(--cupid-sp-xs);
+}
+
+.primaryAction:active {
+  transform: translateY(var(--cupid-motion-press-offset));
+}
+
+.timer {
+  padding-top: var(--cupid-sp-group-in);
+  text-align: center;
+}
+
+.timerValue {
+  color: var(--cupid-idv-muted);
+  font-family: var(--cupid-idv-display);
+  font-size: var(--cupid-home-empty-timer-size);
+  line-height: var(--cupid-home-empty-timer-line-height);
+}
+
+.timerLabel {
+  margin-top: var(--cupid-sp-sm);
+  color: var(--cupid-idv-muted);
+  font-size: var(--cupid-home-empty-timer-label-size);
+  font-weight: 700;
+  letter-spacing: var(--cupid-home-empty-kicker-spacing);
+  text-transform: uppercase;
+}
+
+.editorNote {
+  position: relative;
+  width: 100%;
+  max-width: var(--cupid-home-empty-editor-max);
+  margin: var(--cupid-sp-group-in) auto 0;
+  padding: var(--cupid-sp-block);
+  overflow: hidden;
+  border: var(--cupid-motion-press-offset) solid var(--cupid-idv-gold-border);
+  border-radius: var(--cupid-radius-sharp);
+  background: var(--cupid-idv-paper);
+}
+
+.editorRule {
+  position: absolute;
+  inset: 0 0 auto;
+  height: var(--cupid-home-empty-editor-rule-width);
+  background: var(--cupid-idv-gold);
+}
+
+.editorKicker {
+  color: var(--cupid-idv-gold);
+  font-size: var(--cupid-home-empty-editor-kicker-size);
+  font-weight: 800;
+  letter-spacing: var(--cupid-home-empty-kicker-spacing);
+}
+
+.editorBody {
+  margin-top: var(--cupid-sp-row);
+  color: var(--cupid-idv-text);
+  font-family: var(--cupid-idv-serif);
+  font-size: var(--cupid-home-empty-editor-body-size);
+  line-height: var(--cupid-home-empty-editor-body-line-height);
+  text-wrap: pretty;
+  word-break: keep-all;
+}
+
+.signature {
+  margin-top: var(--cupid-sp-row);
+  color: var(--cupid-idv-accent);
+  font-family: var(--cupid-idv-display);
+  font-size: var(--cupid-control-button-size);
+  font-style: italic;
+  text-align: right;
+}

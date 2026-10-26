@@ -1,0 +1,222 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* R21 Cupid 컨셉 매거진 톤 토큰 */
+@import "../styles/cupid-tokens.css";
+
+/* 라이트 모드 CSS 변수 */
+:root {
+  --bg: #FAF7F2;
+  --card: #FFFFFF;
+  --gold: #B8860B;
+  --rosegold: #DAA520;
+  --text: #1A1A1A;
+  --subtext: #6B6B6B;
+  --border: #E8E3DB;
+  /* R18 placeholder 하드코딩 #999를 그대로 옮긴 값. 색을 바꾸지 않기 위해 --subtext에 억지로 붙이지 않는다 */
+  --placeholder-text: #999;
+  /* 워드마크 shimmer 고정 골드 3색. 라이트/다크 무관 고정값이라 .dark에서 재정의하지 않는다(재정의하면 다크모드 시각이 바뀐다) */
+  --wordmark-shimmer-1: #B8860B;
+  --wordmark-shimmer-2: #DAA520;
+  --wordmark-shimmer-3: #F0D98C;
+}
+
+/* 다크 모드 CSS 변수 */
+.dark {
+  --bg: #0D0D0D;
+  --card: #1A1A1A;
+  --gold: #C9A96E;
+  --rosegold: #DAA520;
+  --text: #F5F0E8;
+  --subtext: #9A9A9A;
+  --border: #2C2C2C;
+  /* R18 placeholder 하드코딩 #666을 그대로 옮긴 값. 색을 바꾸지 않기 위해 --subtext에 억지로 붙이지 않는다 */
+  --placeholder-text: #666;
+}
+
+/* 기본 body 스타일 */
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Pretendard', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 모드 전환 시 부드러운 전환 효과 */
+*,
+*::before,
+*::after {
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* 스크롤바 스타일 (웹킷 기반 브라우저) */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--subtext);
+  border-radius: 3px;
+}
+
+/* 모바일 탭 하이라이트 제거 */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* R13-12: 관리자 라이트모드 input/select 텍스트 검정색 보장 */
+input, select, textarea {
+  color: var(--text);
+}
+.dark input, .dark select, .dark textarea {
+  color: var(--text);
+}
+
+/* R18: placeholder 검정색 방지 — 밝은 회색으로 표시 */
+input::placeholder, select::placeholder, textarea::placeholder {
+  color: var(--placeholder-text);
+}
+
+/* DESIGN.md v39 공통 폼 계약. 로그인·가입이 화면별 Tailwind 값으로 갈라지지 않게 한 곳에서 소비한다. */
+.cupid-form-heading {
+  color: var(--cupid-idv-text);
+  font-family: var(--cupid-idv-serif);
+  font-size: var(--cupid-control-heading-size);
+  font-weight: var(--cupid-control-heading-weight);
+  line-height: var(--cupid-control-heading-line-height);
+}
+
+.cupid-form-input {
+  width: 100%;
+  min-height: var(--cupid-control-input-height);
+  border: 1px solid var(--cupid-idv-border);
+  border-radius: var(--cupid-radius-input);
+  background: var(--cupid-idv-card);
+  color: var(--cupid-idv-text);
+  font-family: var(--cupid-idv-sans);
+}
+
+.cupid-form-input:focus {
+  border-color: var(--cupid-idv-accent);
+  outline: none;
+}
+
+.cupid-form-input:active {
+  border-color: var(--cupid-idv-accent);
+}
+
+.cupid-primary-button {
+  min-height: var(--cupid-control-button-height);
+  border: 0;
+  border-radius: var(--cupid-radius-sharp);
+  background: linear-gradient(135deg, var(--cupid-idv-accent-deep), var(--cupid-idv-accent));
+  color: var(--cupid-idv-on-accent);
+  font-family: var(--cupid-idv-sans);
+  font-size: var(--cupid-control-button-size);
+  font-weight: 800;
+  letter-spacing: 0.01875rem;
+}
+
+.cupid-primary-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.cupid-primary-button:active {
+  filter: brightness(0.94);
+  transform: translateY(var(--cupid-motion-press-offset));
+}
+
+.cupid-chevron-link {
+  min-height: 2.75rem;
+  color: var(--cupid-idv-text-2);
+  font-family: var(--cupid-idv-sans);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.cupid-chevron-link:active {
+  opacity: 0.7;
+}
+.dark input::placeholder, .dark select::placeholder, .dark textarea::placeholder {
+  color: var(--placeholder-text);
+}
+
+/* DESIGN.md v39.5 결제 결과 지면: pay-result · pay-cta 계약 */
+.pay-result {
+  display: flex;
+  min-height: min(var(--cupid-pay-result-min-height), 100dvh);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: var(--cupid-sp-section) var(--cupid-pay-result-gutter);
+  text-align: center;
+}
+
+.pay-result .pay-rhd {
+  color: var(--text);
+  font-family: var(--cupid-idv-serif);
+  font-size: var(--cupid-pay-heading-size);
+  font-weight: 600;
+  letter-spacing: -0.025rem;
+  line-height: var(--cupid-lh-title);
+}
+
+.pay-result .pay-rbd {
+  max-width: var(--cupid-pay-result-content-max);
+  margin-top: var(--cupid-sp-row);
+  color: var(--subtext);
+  font-size: var(--cupid-pay-body-size);
+  line-height: var(--cupid-lh-body);
+}
+
+.pay-cta {
+  width: 100%;
+  max-width: var(--cupid-pay-result-content-max);
+  min-height: var(--cupid-pay-cta-min-height);
+  margin-top: var(--cupid-sp-block);
+  border: 0;
+  border-radius: var(--cupid-radius-sharp);
+  background: var(--cupid-idv-accent);
+  color: var(--cupid-idv-on-accent);
+  font-size: var(--cupid-pay-body-size);
+  font-weight: 800;
+  letter-spacing: var(--cupid-pay-letter-spacing);
+  transition: filter var(--cupid-motion-fast) ease-out,
+    transform var(--cupid-motion-fast) ease-out;
+}
+
+.pay-cta:active {
+  filter: brightness(0.96);
+  transform: translateY(var(--cupid-motion-press-offset)) scale(0.995);
+}
+
+.pay-result-links {
+  display: flex;
+  gap: var(--cupid-sp-group-in);
+  margin-top: var(--cupid-sp-row);
+}
+
+.pay-help {
+  min-height: 2.75rem;
+  border: 0;
+  background: transparent;
+  color: var(--subtext);
+  font-size: var(--cupid-pay-link-size);
+  text-decoration: underline;
+  text-underline-offset: var(--cupid-radius-sharp);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pay-cta {
+    transition: none;
+  }
+}
