@@ -1,5 +1,6 @@
 'use client';
 
+import { trackSignupComplete } from '@/lib/analytics/conversions';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { authApi } from '@/lib/api/auth';
@@ -230,6 +231,7 @@ export default function SignupPage() {
         }
       );
 
+      trackSignupComplete(response.userId);
       markInterviewIntroPending();
       try {
         window.sessionStorage.setItem(INTERVIEW_INTRO_STORAGE_KEY, 'pending');

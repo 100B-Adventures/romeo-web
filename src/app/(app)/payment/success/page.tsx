@@ -11,6 +11,7 @@ import {
   clearPendingTossOrder, findPendingTossOrder, savePendingTossOrder,
 } from '@/lib/payment/pendingOrder';
 import { capturePaymentAuth, paymentAuthUnchanged } from '@/lib/payment/authSnapshot';
+import { trackPurchaseComplete } from '@/lib/analytics/conversions';
 
 /**
  * 결제 성공 페이지
@@ -75,6 +76,7 @@ function PaymentSuccessContent() {
           setIsPending(true);
           return;
         }
+        trackPurchaseComplete(orderId, order.amount);
         setChargedHearts(order.hearts);
         setPaidAmount(order.amount);
         try {
@@ -209,6 +211,7 @@ function PaymentSuccessContent() {
       }
       setIsPending(false);
       setIsConfirmed(true);
+      trackPurchaseComplete(result.orderId, result.amount);
       if (reserved) clearPendingTossOrder(orderId);
       // 충전 수량·결제 금액은 승인 응답, 현재 잔액은 통합 하트 지갑이 진실원이다.
       setChargedHearts(result.hearts);

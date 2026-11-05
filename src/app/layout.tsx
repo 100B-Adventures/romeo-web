@@ -3,6 +3,7 @@ import { Noto_Serif_KR } from 'next/font/google';
 import Providers from './providers';
 import GoogleAnalytics from '@/components/common/GoogleAnalytics';
 import MicrosoftClarity from '@/components/common/MicrosoftClarity';
+import MetaPixel from '@/components/common/MetaPixel';
 import ServiceWorkerRegister from '@/components/common/ServiceWorkerRegister';
 import { getSiteUrl } from '@/lib/siteUrl';
 import './globals.css';
@@ -82,6 +83,7 @@ export default function RootLayout({
       <body className="font-sans antialiased">
         <GoogleAnalytics />
         <MicrosoftClarity />
+        <MetaPixel />
         <ServiceWorkerRegister />
         <Providers>
           {children}

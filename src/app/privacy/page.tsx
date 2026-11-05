@@ -10,7 +10,7 @@ export default function PrivacyPage() {
   return (
     <div className="min-h-screen bg-white dark:bg-dark-bg px-4 py-8 max-w-2xl mx-auto">
       <h1 className="text-2xl font-bold mb-2 text-gray-900 dark:text-gray-100">개인정보처리방침</h1>
-      <p className="text-xs text-gray-500 dark:text-gray-400 mb-8">최종 수정일: 2026년 10월 12일 (문자 인증·출생연도 자기신고 및 제3자 AI 처리 고지 반영)</p>
+      <p className="text-xs text-gray-500 dark:text-gray-400 mb-8">최종 수정일: 2026년 11월 5일 (웹 행태정보 수집 도구 Microsoft Clarity·Meta 픽셀·Google Analytics 고지 반영)</p>
 
       <div className="space-y-8 text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
         <section>
@@ -67,6 +67,7 @@ export default function PrivacyPage() {
             <li>기기 정보 (OS 종류, 기기 모델, 앱 버전)</li>
             <li>쿠키, 세션 정보</li>
             <li>푸시 알림 토큰 (FCM)</li>
+            <li>웹사이트 행태정보: 방문 페이지, 클릭·스크롤 등 이용 행동, 유입 경로, 광고 클릭 식별자, 쿠키 식별자, 브라우저·기기 정보, IP 주소, 회원가입·결제 완료 여부와 결제 금액 (자세한 내용은 제10조)</li>
           </ul>
         </section>
 
@@ -232,6 +233,46 @@ export default function PrivacyPage() {
           <p className="mb-2">
             회사는 서비스 이용 편의를 위해 쿠키를 사용합니다. 이용자는 웹 브라우저 설정을 통해
             쿠키 저장을 거부할 수 있으나, 이 경우 일부 서비스 이용에 어려움이 있을 수 있습니다.
+          </p>
+          <p className="mb-2">
+            회사는 웹사이트 이용 분석과 광고 성과 측정을 위해 아래 도구를 사용합니다. 전화번호, 프로필, 인증 서류, 채팅 내용을
+            이 도구들에 직접 전달하지 않습니다. 다만 세션 녹화 특성상 화면에 표시된 내용이 수집될 수 있으며, 수집된 정보는
+            아래 사업자의 국외 서버(미국 등)로 웹사이트 접속 시 네트워크를 통해 이전됩니다.
+          </p>
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse text-xs mt-2">
+              <thead>
+                <tr className="border-b border-gray-300 dark:border-gray-700">
+                  <th className="text-left py-2 pr-4">도구 (이전받는 자, 국가)</th>
+                  <th className="text-left py-2 pr-4">수집 항목</th>
+                  <th className="text-left py-2 pr-4">목적</th>
+                  <th className="text-left py-2">거부 방법</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-gray-200 dark:border-gray-800">
+                  <td className="py-2 pr-4">Microsoft Clarity (Microsoft Corporation, 미국)</td>
+                  <td className="py-2 pr-4">세션 리플레이(화면 이동·클릭·스크롤 기록), 히트맵, 쿠키 식별자, 브라우저·기기 정보, IP 주소</td>
+                  <td className="py-2 pr-4">화면 사용성 개선, 오류 분석</td>
+                  <td className="py-2">브라우저 쿠키 차단 또는 추적 차단 기능</td>
+                </tr>
+                <tr className="border-b border-gray-200 dark:border-gray-800">
+                  <td className="py-2 pr-4">Meta 픽셀 (Meta Platforms, Inc., 미국)</td>
+                  <td className="py-2 pr-4">방문 페이지, 쿠키·광고 클릭 식별자, 브라우저 정보, IP 주소, 회원가입 완료, 결제 완료와 금액</td>
+                  <td className="py-2 pr-4">광고 성과 측정, 맞춤형 광고</td>
+                  <td className="py-2">브라우저 쿠키 차단, Meta 광고 설정(facebook.com/adpreferences)</td>
+                </tr>
+                <tr className="border-b border-gray-200 dark:border-gray-800">
+                  <td className="py-2 pr-4">Google Analytics (Google LLC, 미국)</td>
+                  <td className="py-2 pr-4">방문 페이지, 이용 행동, 유입 경로, 쿠키 식별자, 브라우저·기기 정보, 회원가입 완료, 결제 완료와 금액</td>
+                  <td className="py-2 pr-4">서비스 이용 통계 분석</td>
+                  <td className="py-2">브라우저 쿠키 차단, Google 차단 부가기능(tools.google.com/dlpage/gaoptout)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-2 text-xs text-gray-600 dark:text-gray-400">
+            보유 기간은 각 사업자의 정책과 회사 설정에 따르며, 이용 목적 달성 시 파기하거나 삭제를 요청합니다.
           </p>
         </section>
 
