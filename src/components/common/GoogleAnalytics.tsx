@@ -3,13 +3,12 @@
 import Script from 'next/script';
 
 // GA4 수집 태그 (회장 2026-06 OUTPUT 집중령 — 각 앱이 gtag 직접 심기)
-// measurement ID는 배포 env(NEXT_PUBLIC_GA_MEASUREMENT_ID)로 주입.
-// 미설정 시 아무것도 로드하지 않음 = 로컬/미설정 환경 안전 no-op.
-const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+// 측정 ID 는 공개 값이다. NEXT_PUBLIC_GA_MEASUREMENT_ID 로 바꿀 수 있고, 없으면 로미오 운영 웹 스트림을 쓴다(Clarity·Meta 픽셀과 같은 방식).
+const DEFAULT_GA_MEASUREMENT_ID = 'G-KTKDSQKF7K';
+const envId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID?.trim();
+const GA_MEASUREMENT_ID = envId && /^G-[A-Z0-9]+$/.test(envId) ? envId : DEFAULT_GA_MEASUREMENT_ID;
 
 export default function GoogleAnalytics() {
-  if (!GA_MEASUREMENT_ID) return null;
-
   return (
     <>
       <Script
